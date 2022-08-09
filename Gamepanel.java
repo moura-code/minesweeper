@@ -1,12 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Gamepanel extends JPanel {
      final int SCREEN_WIDTH = 1300;
      final int SCREEN_HEIGHT = 750;
      final int ROWS = 16;
      final int COLS = 30;
+     final int BOMBS = 99;
      static Boolean losed = true;
      static ArrayList<ArrayList<Space>> game = new  ArrayList<ArrayList<Space>>();
 
@@ -23,7 +25,20 @@ public class Gamepanel extends JPanel {
         addbuttons();
         setbombs();
     }
-    public void setbombs(){};
+    public void setbombs(){
+        ArrayList<Integer> randNums= new ArrayList<>();
+        Random randy = new Random();
+        while(randNums.size() != BOMBS) {
+            int a = randy.nextInt(COLS);
+
+            randNums.add(a);
+        }
+        for (int i = 0; i <BOMBS; i++) {
+            int a = randy.nextInt(ROWS);
+            game.get(a).get(randNums.get(i)).SetIsBomb();
+        }
+
+    };
     static void lose () throws InterruptedException {
 
 
