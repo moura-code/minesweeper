@@ -1,5 +1,7 @@
+package minesweeper;
+
 import javax.swing.*;
-import java.awt.*;
+
 public class Gameframe extends JFrame {
 
     Gameframe(){

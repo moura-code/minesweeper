@@ -1,7 +1,10 @@
+package minesweeper;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 public class Space extends JButton implements ActionListener, Runnable{
 
@@ -141,14 +144,16 @@ public class Space extends JButton implements ActionListener, Runnable{
         return 0;
     }
     public void click(int number){
-        ImageIcon icon = new ImageIcon("./images/"+ number+".png");
+        URL url = getClass().getResource("/images/" + number + ".png");
+        ImageIcon icon = new ImageIcon(url);
         Image img = icon.getImage();
         Image newimg = img.getScaledInstance(this.getWidth(), this.getHeight(), java.awt.Image.SCALE_SMOOTH);
         icon = new ImageIcon(newimg);
         this.setIcon(icon);
     }
     public void setbomb(){
-        ImageIcon icon = new ImageIcon("./images/bomb.png");
+        URL url = getClass().getResource("/images/bomb.png");
+        ImageIcon icon = new ImageIcon(url);
         Image img = icon.getImage();
         Image newimg = img.getScaledInstance(this.getWidth(), this.getHeight(), java.awt.Image.SCALE_SMOOTH);
         icon = new ImageIcon(newimg);
